@@ -14,12 +14,12 @@ print(y)
 print("My PID is:", os.getpid())
 
 
-if len(str(token)) < 5: print("please put your token in env"); sys.exit(1)
+if len(str(token)) < 5: print("пожалуйста, поместите свой токен в env"); sys.exit(1)
 
 
 keybd = ReplyKeyboardMarkup([
-     ['🤖 Ping', '⁉️ Help', '👀Who?'],
-     ['⚠️ REPORT', '😊 Thanks']], resize_keyboard=True)
+     ['🤖 Пинг', '⁉️ Помощь', '👀 Что это?'],
+     ['⚠️ Репорт', '😊 Спасибо']], resize_keyboard=True)
 
 
 stk0 = "CAADBAADrgcAAnILQFPgjUtxHDj-oQI"
@@ -33,8 +33,7 @@ stk7 = "CAADBAAD_AkAAzI4U1zm0zS8ZmfzAg"
 stk8 = "CAADBAADZQoAAvmvQFN_0Kq6nbL7IAI"
 fthl = "CAACAgEAAxkBAAEDhMhhv1eWCc2bLbg8V5ZW2w7v5lVz0QAClQEAAjT0-UWjXL_zWuG_FiME"
 
-start_msg0 = "Hi human,"
-start_msg1 = "I'm very fast **RUTUBE DOWNLOADER** \n\nI can download any video from rutube\n\nJust send me any rutube links to start"
+start_msg0 = "Привет! Я очень быстро скачиваю видео с **RUTUBE** \nПросто пришлите мне любую ссылку на видео, чтобы его скачать.\n\nПоддержка: @dlph1n"
 
 help_text = """ Hi %s,
 
@@ -73,28 +72,28 @@ about_text = """
 │
 ╰──────[Thanks 😊]───⍟"""
 
-msg0 = "**Fetching Link...**"
-msg1=  "**Sorry But I can't get this link for you** (private content)"
-msg2 = "**Downloading.....**"
-msg3 = "**Download Finished**\n\n**Uploading**......"
-msg4 = "**Please choose a Video quality** you would like to download"
-msg5 = "**Please choose Audio quality** for the Video you selected"
-msg6 = "**Got a 429 error (HTTP Too many reqests)** \nplease report any problems to @bryllbots_support \n I will reboot now, Please retry after 1 min"
-msg7 = "**Video downloaded, Downloading Audio....**"
-msg8 = "**Error code %s** Kindly report this"
-msg9 = "**Joining Video with Audio you Selected....**"
-msg10 = "**Huh?** you don't want video or audio,\nthen what do you want??"
-msg11 = "**Please Send a Valid RUTUBE Link**"
-msg12 = "**Sorry, the Link you requested is age-restricted**"
-msg13 = "**Sorry, this video is Private**"
-msg14 = "**Sorry, this video is Region Blocked**"
-msg16 = "**Regex Error, Please report this issue** along with the link"
+msg0 = "**Получение ссылки...**"
+msg1=  "**Извините, но я не могу скачать это видео, оно приватное**"
+msg2 = "**Скачивание...**"
+msg3 = "**Загрузка завершена**\n\n**Отправка**..."
+msg4 = "**Пожалуйста, выберите качество видео**, которое вы хотели бы скачать"
+msg5 = "**Пожалуйста, выберите качество звука** для выбранного видео."
+msg6 = "**Получили ошибку 429 (HTTP Too many reqests)** \nпожалуйста, отправьте эту проблему в поддержу: @dlph1in \n Я перезагружусь сейчас, пожалуйста, повторите попытку через 1 мин."
+msg7 = "**Видео скачано, скачивание аудио....**"
+msg8 = "**Код ошибки %s** Пожалуйста, сообщите об этом в поддержку: @dlph1in"
+msg9 = "**Объединение видео с аудио вы выбрали...**"
+msg10 = "**А?** Вы не хотите видео или аудио,\nтогда что вы хотите???"
+msg11 = "**Пожалуйста, пришлите действующую ссылку на видео**"
+msg12 = "**Извините, запрашиваемая вами ссылка ограничена по возрасту**"
+msg13 = "**Извините, это видео является приватным**"
+msg14 = "**Извините, это видео заблокировано в регионе**"
+msg16 = "**Regex Error, пожалуйста, сообщите об этой проблеме вместе со ссылкой в поддержку: @dlph1in"
 
-logger1 = "**New user!!**"
-logger2 = "**User Says**:\n\n"
-logger3 = "**User Wants To report** \n\n"
-logger4 = "you have to say something like **/report video isn't playable**\nOr reply to a message\n\n** ⚠️ REPORT any bugs at @bryllbots_support  ⚠️ **"
-logger5 = "**User is Happy** says thanks "
+logger1 = "**Новый пользователь**"
+logger2 = "**Пользователь отправил**:\n\n"
+logger3 = "**Пользователь хочет сообщить** \n\n"
+logger4 = "Вы должны сказать что-то вроде**: отчет видео не воспроизводится**\n или ответить на сообщение\n\n** ⚠️ Отправляйте ошибки в поддержку @dlph1in  ⚠️ **"
+logger5 = "**Пользователь счастлив** говорит спасибо"
 
 
 headers = {
