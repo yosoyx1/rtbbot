@@ -14,9 +14,8 @@ async def fetch(c, m, fetch, link):
     rupt   = 'https?://rutube\.ru/(?:video|(?:play/)?embed)/(?P<id>[\da-z]{32})'
     search = re.search(rupt, link)
     if not search:
-       await m.reply_text('**Please send valid rutube link!**')
+       await m.reply_text('**Пожалуйста, пришлите действующую ссылку на видео!**')
        await fetch.delete()
-       await m.reply_sticker(stk0)
        return
 
     id = search.groups()[0]
@@ -43,13 +42,11 @@ async def fetch(c, m, fetch, link):
           print(msg6, str(e))
           await m.reply_text(msg6)
           await fetch.delete()
-          await m.reply_sticker(stk0)
           return
 
        print(e)
        await fetch.delete()
        await m.reply_text(str(e))
-       await m.reply_sticker(stk0)
        return
 
     mins = 0; secs = 0
@@ -62,11 +59,11 @@ async def fetch(c, m, fetch, link):
             break
 
     msgFetch = f"""
-**Title:** {title}
-**Author:** <a href="{channel}"><b>{author}</b></a>
-**Length:** {length}
-**Views:** {views}
-**Date:** {date}"""
+**Название:** {title}
+**Автор:** <a href="{channel}"><b>{author}</b></a>
+**Длительность:** {length}
+**Просмотров:** {views}
+**Дата:** {date}"""
 
     msgFetch += "\n\n"
     await fetch.delete()
@@ -114,8 +111,7 @@ async def download(c, m, savetoken, res):
               break
 
        if not link:
-          await m.message.edit_text("**Can't find Video Quality You selected** Something went wrong")
-          await m.message.reply_sticker(stk0)
+          await m.message.edit_text("**Не удается найти выбранное качество видео** Что-то пошло не так")
           return "processed"
 
 
@@ -127,17 +123,15 @@ async def download(c, m, savetoken, res):
           await m.message.edit_text(msg8%code)
           return  "processed"
 
-       await m.message.edit_text(savetoken.info + "**Uploading...**")
+       await m.message.edit_text(savetoken.info + "**Загрузка...**")
     except Exception as e:
         if "429" in str(e):
             print(msg6, str(e))
             await m.message.edit_text(msg6)
-            await m.message.reply_sticker(stk0)
             return
 
         print(e)
         await m.message.edit_text(str(e))
-        await m.message.reply_sticker(stk0)
         return "processed"
 
     media = open(path, 'rb')
@@ -158,7 +152,6 @@ async def download(c, m, savetoken, res):
     except Exception as e:
        print(e)
        await m.message.edit_text(str(e))
-       await m.message.reply_sticker(stk0)
        os.remove(path)
        return "processed"
 
@@ -203,13 +196,13 @@ async def tHePrOgReSsHoOk(timedone, times, savetoken):
     fileName = savetoken.title + ".mp4"
     Mediasize = savetoken.size
     tex = f"""
-╭───[**Dᴏᴡɴʟᴏᴀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇ**]───⍟
+╭───[**Скачивание видео**]───⍟
 │
-├<b>📁 Fɪʟᴇ Nᴀᴍᴇ : {fileName}</b>
+├<b>📁 Название : {fileName}</b>
 │
-├<b>🗂 Fɪʟᴇ Sɪᴢᴇ : {Mediasize}</b>
+├<b>🗂 Размер видео : {Mediasize}</b>
 │
-├<b>✅ Dᴏɴᴇ : {downloadprogress}%</b>
+├<b>✅ Скачано : {downloadprogress}%</b>
 │
 ├<b>📥 : [{messa}]</b>
 ╰─────────────────⍟"""
@@ -260,17 +253,17 @@ async def progresss(current, total, message, start, name, info):
         speed = current / diff
 
         progress = """\n
-╭───[**Uᴘʟᴏᴀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇ**]───⍟
+╭───[**Загрузка видео**]───⍟
 │
-├<b>📁 Fɪʟᴇ Nᴀᴍᴇ : {6}</b>
+├<b>📁 Название : {6}</b>
 │
-├<b>✅ Dᴏɴᴇ : {3} / {4}</b>
+├<b>✅ Загружено : {3} / {4}</b>
 │
-├<b>🚀 Pʀᴏɢʀᴇss : {2}%</b>
+├<b>🚀 Прогресс : {2}%</b>
 │
 ├<b>📥 : [{0}{1}]</b>
 │
-├<b>⚡ Sᴘᴇᴇᴅ : {5}/s</b>
+├<b>⚡ Скорость : {5}/s</b>
 ╰─────────────────⍟""".format(
             ''.join(["●" for i in range(math.floor(percentage / 5))]),
             ''.join(["○" for i in range(20 - math.floor(percentage / 5))]),
