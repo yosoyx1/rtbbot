@@ -153,12 +153,11 @@ async def ru(client, message):
 
     if "ru" in link:
         await message.reply_sticker(stk4)
-        msg = await message.reply_text("Working on it...")
+        msg = await message.reply_text("Работаю над этим...")
         savetoken = await fetch(client, message, msg, link)
         savedTokens[message.from_user.id] = savetoken
     else:
         print(len(link), "ru" in link, link)
-        await message.reply_sticker(stk2)
         await message.reply_text(msg11)
 
 @tube.on_callback_query()
@@ -168,11 +167,11 @@ async def calls(client, message):
     await message.answer()
 
     if not  message.from_user.id in savedTokens:
-       await message.message.edit_text("**Sorry this Process Expired** resend a link")
+       await message.message.edit_text("**Извините, этот процесс истек** повторно отправьте ссылку")
        return
 
     if message.from_user.id in processedUsers and processedUsers[message.from_user.id] == "processing":
-       await message.message.edit_text("**Only One task at a time**")
+       await message.message.edit_text("**Только одна задача за раз**")
        return
 
     res1, res2  = data.split("|")
